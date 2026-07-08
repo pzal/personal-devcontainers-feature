@@ -6,14 +6,12 @@
     {
       "source": "${localEnv:HOME}/.claude",
       "target": "${containerEnv:HOME}/.claude",
-      "type": "bind",
-      "consistency": "cached"
+      "type": "bind"
     },
     {
       "source": "${localEnv:HOME}/.codex",
       "target": "${containerEnv:HOME}/.codex",
-      "type": "bind",
-      "consistency": "cached"
+      "type": "bind"
     }
   ],
   "postCreateCommand": "if [ ! -d \"$HOME/dotfiles/.git\" ]; then git clone https://github.com/pzal/dotfiles.git \"$HOME/dotfiles\"; fi && cd \"$HOME/dotfiles\" && ./install.sh"
