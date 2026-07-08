@@ -1,0 +1,20 @@
+{
+  "id": "personal-devcontainers-feature",
+  "version": "1.0.0",
+  "name": "Personal devcontainers feature",
+  "mounts": [
+    {
+      "source": "${localEnv:HOME}/.claude",
+      "target": "${containerEnv:HOME}/.claude",
+      "type": "bind",
+      "consistency": "cached"
+    },
+    {
+      "source": "${localEnv:HOME}/.codex",
+      "target": "${containerEnv:HOME}/.codex",
+      "type": "bind",
+      "consistency": "cached"
+    }
+  ],
+  "postCreateCommand": "if [ ! -d \"$HOME/dotfiles/.git\" ]; then git clone https://github.com/pzal/dotfiles.git \"$HOME/dotfiles\"; fi && cd \"$HOME/dotfiles\" && chmod +x ./install.sh && ./install.sh"
+}
