@@ -1,18 +1,18 @@
 {
   "id": "personal-devcontainers-feature",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "name": "Personal devcontainers feature",
   "mounts": [
     {
       "source": "${localEnv:HOME}/.claude",
-      "target": "${containerEnv:HOME}/.claude",
+      "target": "/mnt/personal-devcontainers-feature/.claude",
       "type": "bind"
     },
     {
       "source": "${localEnv:HOME}/.codex",
-      "target": "${containerEnv:HOME}/.codex",
+      "target": "/mnt/personal-devcontainers-feature/.codex",
       "type": "bind"
     }
   ],
-  "postCreateCommand": "if [ ! -d \"$HOME/dotfiles/.git\" ]; then git clone https://github.com/pzal/dotfiles.git \"$HOME/dotfiles\"; fi && cd \"$HOME/dotfiles\" && ./install.sh"
+  "postCreateCommand": "/usr/local/share/personal-devcontainers-feature/bootstrap.sh"
 }
